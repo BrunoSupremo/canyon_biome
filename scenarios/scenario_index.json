@@ -1,0 +1,8 @@
+{
+	"static" : {
+		"scenarios" : [
+			"file(static/landmarks/64x_pillars.json)",
+			"file(static/landmarks/32x_pillar.json)"
+		]
+	}
+}

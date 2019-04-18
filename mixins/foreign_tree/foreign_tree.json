@@ -1,0 +1,12 @@
+{
+	"components": {
+		"stonehearth:seasonal_model_switcher": {
+			"canyon_biome:biome:canyon": {
+				"spring": "spring",
+				"summer": "default",
+				"autumn": "autumn",
+				"winter": "winter"
+			}
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"mixins" : "/stonehearth/data/biome/desert.json",
+	"alias": "canyon_biome:biome:canyon",
+	"display_name": "i18n(canyon_biome:data.biome.canyon.display_name)",
+	"description": "i18n(canyon_biome:data.biome.canyon.description)",
+	"mixintypes": {
+		"random_location_names": "override"
+	},
+	"random_location_names": [
+		"i18n(canyon_biome:data.biome.canyon.random_location_names.000)",
+		"i18n(canyon_biome:data.biome.canyon.random_location_names.001)",
+		"i18n(canyon_biome:data.biome.canyon.random_location_names.002)",
+		"i18n(canyon_biome:data.biome.canyon.random_location_names.003)"
+	],
+	"image": "file(images/canyon_400x300.jpg)",
+	"story_board_image": "file(images/canyon_story_board.jpg)",
+	"mining_loot_table": "file(canyon_mining_loot_table.json)",
+	"applied_manifests": {
+		"canyon": "canyon_biome/canyon_selected/manifest.json"
+	},
+	"generation_file": "file(canyon_generation.json)"
+}

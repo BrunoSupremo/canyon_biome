@@ -1,0 +1,17 @@
+{
+	"mixins": "/stonehearth/scenarios/static/landmarks/qb_to_terrain.json",
+	"biomes": ["canyon_biome:biome:canyon"],
+	"name": "pillar_canyon",
+	"category": "terrain_feature_common",
+	"size": {
+		"width": 30,
+		"length": 30
+	},
+	"habitat_types": ["mountains"],
+	"overwrite_occupied_size": 3,
+	"weight": 1,
+	"data": {
+		"brush" : "/canyon_biome/data/models/landmark/32x_pillar.qb",
+		"landmark_block_types": "stonehearth:landmark_blocks"
+	}
+}

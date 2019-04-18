@@ -1,0 +1,12 @@
+{
+	"components": {
+		"stonehearth:seasonal_model_switcher": {
+			"canyon_biome:biome:canyon": {
+				"spring": "tuft_green",
+				"summer": "tuft_dry",
+				"autumn": "tuft_dry",
+				"winter": "tuft_dry"
+			}
+		}
+	}
+}

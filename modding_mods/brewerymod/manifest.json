@@ -1,0 +1,5 @@
+{
+	"mixintos": {
+		"stonehearth/data/biome/desert_generation_data.json": "canyon_biome/modding_mods/brewerymod/generation.json"
+	}
+}

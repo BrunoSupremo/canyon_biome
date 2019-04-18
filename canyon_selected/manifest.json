@@ -1,0 +1,63 @@
+{
+	"info": {
+		"name": "canyon_selected",
+		"deferred_load": true,
+		"version": 3
+	},
+	"mixintos": {
+		"stonehearth/data/gm/campaigns/dragonborn_king/arcs/trigger/dragonborn_king/encounters/spawn_friendly_entities.json":"file(data/gm/campaigns/dragonborn_king/arcs/trigger/dragonborn_king/encounters/spawn_friendly_entities.json)",
+
+		"stonehearth:landmark_blocks": "file(data/terrain/landmark_blocks.json)",
+
+		"stonehearth:mixins:tree": "canyon_biome:mixins:foreign_tree",
+		"stonehearth:plants:tumbleweed": "canyon_biome:mixins:foreign_tree",
+		"stonehearth/entities/trees/acacia_tree/sapling_acacia_tree/sapling_acacia_tree_iconic.json": "canyon_biome:mixins:foreign_tree",
+		"stonehearth/entities/trees/oak_tree/sapling_oak_tree/sapling_oak_tree_iconic.json": "canyon_biome:mixins:foreign_tree",
+		"stonehearth/entities/trees/juniper_tree/sapling_juniper_tree/sapling_juniper_tree_iconic.json": "canyon_biome:mixins:foreign_tree",
+
+		"stonehearth_ace:terrain:pasture_grass": "canyon_biome:mixins:pasture_grass",
+		"stonehearth_ace:terrain:pasture_grass:overgrown": "canyon_biome:mixins:pasture_grass",
+		"stonehearth_ace:terrain:pasture_grass:short": "canyon_biome:mixins:pasture_grass",
+		"stonehearth_ace:terrain:pasture_grass:sprouting": "canyon_biome:mixins:pasture_grass",
+
+		"stonehearth:rabbit:statue":"file(entities/rabbit/rabbit_statue)",
+		"stonehearth/scenarios/static/terrain/rabbit_clan_statue/rabbit_clan_statue.json":"file(scenarios/static/terrain/rabbit_clan_statue)",
+
+		"stonehearth/scenarios/static/beetle_nest/beetle_nest.json":"file(scenarios/static/add_to_mountains_too.json)",
+		"stonehearth/scenarios/static/bitsy_ant_nest/bitsy_ant_nest.json":"file(scenarios/static/add_to_mountains_too.json)",
+		"stonehearth/scenarios/static/ostrich_nest/ostrich_nest.json":"file(scenarios/static/add_to_mountains_too.json)",
+
+		"stonehearth/scenarios/static/landmarks/64x_cave_lake.json":"file(scenarios/static/add_to_mountains_too.json)",
+		"stonehearth/scenarios/static/landmarks/64x_cave_ore_bad_omen.json":"file(scenarios/static/add_to_mountains_too.json)",
+		"stonehearth/scenarios/static/landmarks/64x_cave_ore_lucky_strike.json":"file(scenarios/static/add_to_mountains_too.json)",
+		"stonehearth/scenarios/static/landmarks/64x_cave_ore_small_strike.json":"file(scenarios/static/add_to_mountains_too.json)",
+		"stonehearth/scenarios/static/landmarks/64x_cave_pattern_lucky_snake.json":"file(scenarios/static/add_to_mountains_too.json)",
+		"stonehearth/scenarios/static/landmarks/64x_cave_pattern_ugly_duckling.json":"file(scenarios/static/add_to_mountains_too.json)",
+		"stonehearth/scenarios/static/landmarks/64x_cave_sanctuary.json":"file(scenarios/static/add_to_mountains_too.json)",
+		"stonehearth/scenarios/static/landmarks/64x_ruin_building.json":"file(scenarios/static/add_to_mountains_too.json)",
+		"stonehearth/scenarios/static/landmarks/64x_ruin_building_cellar.json":"file(scenarios/static/add_to_mountains_too.json)",
+		"stonehearth/scenarios/static/landmarks/64x_ruin_building_farm.json":"file(scenarios/static/add_to_mountains_too.json)",
+		"stonehearth/scenarios/static/landmarks/128x_giant_sleeping.json":"file(scenarios/static/add_to_mountains_too.json)",
+		"stonehearth/scenarios/static/landmarks/128x_gully.json":"file(scenarios/static/add_to_mountains_too.json)",
+		"stonehearth/scenarios/static/landmarks/128x_river_desert.json":"file(scenarios/static/add_to_mountains_too.json)",
+		"stonehearth/scenarios/static/landmarks/128x_ruin_town_farming.json":"file(scenarios/static/add_to_mountains_too.json)",
+		"stonehearth/scenarios/static/landmarks/128x_ruin_town_undead.json":"file(scenarios/static/add_to_mountains_too.json)",
+		"stonehearth/scenarios/static/landmarks/128x_skeleton_whale_desert.json":"file(scenarios/static/add_to_mountains_too.json)",
+		"stonehearth/scenarios/static/landmarks/128x_skeleton_whale_flipped_desert.json":"file(scenarios/static/add_to_mountains_too.json)",
+		"stonehearth/scenarios/static/landmarks/128x_stone_collection_1.json":"file(scenarios/static/add_to_mountains_too.json)",
+		"stonehearth/scenarios/static/landmarks/128x_stone_collection_2.json":"file(scenarios/static/add_to_mountains_too.json)",
+		"stonehearth/scenarios/static/landmarks/128x_stone_collection_3.json":"file(scenarios/static/add_to_mountains_too.json)",
+
+		"stonehearth_ace/scenarios/static/poyo_nest/poyo_nest.json":"file(scenarios/static/add_to_mountains_too.json)",
+		"stonehearth_ace/scenarios/static/scarab_beetle_nest/scarab_beetle_nest.json":"file(scenarios/static/add_to_mountains_too.json)",
+		"stonehearth_ace/scenarios/static/scorpion_nest/scorpion_nest.json":"file(scenarios/static/add_to_mountains_too.json)",
+
+		"stonehearth_ace/scenarios/static/landmarks/32x_cougar_den.json":"file(scenarios/static/add_to_mountains_too.json)",
+		"stonehearth_ace/scenarios/static/landmarks/32x_poyo_land.json":"file(scenarios/static/add_to_mountains_too.json)",
+		"stonehearth_ace/scenarios/static/landmarks/32x_sheep_herd.json":"file(scenarios/static/add_to_mountains_too.json)",
+		"stonehearth_ace/scenarios/static/landmarks/32x_wolf_den.json":"file(scenarios/static/add_to_mountains_too.json)"
+	},
+	"overrides": {
+		"stonehearth/entities/rabbit/rabbit_statue/rabbit_statue_01.qb":"file(entities/rabbit/rabbit_statue/rabbit_statue_01.qb)"
+	}
+}

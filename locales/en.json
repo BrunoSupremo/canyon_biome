@@ -1,0 +1,40 @@
+{
+	"data": {
+		"biome": {
+			"canyon": {
+				"display_name": "Canyon",
+				"description": "Narrow chasms with steep cliff walls, cut into the earth by running water",
+				"random_location_names": {
+					"000": "Mount Thunder",
+					"001": "Stormy Walls",
+					"002": "Scarlet Mountains",
+					"003": "Eagle Bluffs"
+				}
+			}
+		}
+	},
+	"entities":{
+		"decoration":{
+			"bones":{
+				"display_name":"Bones",
+				"description":"Once an animal, now part of the earth"
+			},
+			"skull":{
+				"display_name":"Skull",
+				"description":"Once an animal, now part of the earth"
+			}
+		}
+	},
+ 	"ui":{
+ 		"shell":{
+ 			"select_settlement":{
+ 				"terrain_codes":{
+ 					"water": "River",
+ 					"plains_2": "Valley",
+ 					"mountains_wall": "Mountain Wall",
+ 					"mountains_top": "Plateau"
+ 				}
+ 			}
+ 		}
+ 	}
+}

@@ -1,0 +1,75 @@
+{
+	"info": {
+		"name" : "Canyon Biome",
+		"namespace" : "canyon_biome",
+		"version" : 3,
+		"steam_file_id" : "1321926509"
+	},
+	"default_locale": "en",
+	"server_init_script": "file(canyon_biome_server)",
+	"aliases": {
+		"biome:canyon": "file(data/biome/canyon.json)",
+		"decoration:bones": "file(entities/decoration/bones)",
+		"decoration:rock_arc": "file(entities/decoration/rock_arc)",
+		"decoration:rock_pillar": "file(entities/decoration/rock_pillar)",
+		"decoration:rock_pillar2": "file(entities/decoration/rock_pillar/rock_pillar2.json)",
+		"decoration:rock_pillar3": "file(entities/decoration/rock_pillar/rock_pillar3.json)",
+		"decoration:rock_pillar4": "file(entities/decoration/rock_pillar/rock_pillar4.json)",
+		"decoration:skull": "file(entities/decoration/skull)",
+		"mixins:foreign_tree":"file(mixins/foreign_tree)",
+		"mixins:pasture_grass":"file(mixins/foreign_tree/pasture_grass.json)",
+		"terrain:river": "file(entities/terrain/river)",
+		"terrain:waterfall": "file(entities/terrain/waterfall)"
+	},
+	"mixintos": {
+		"stonehearth:biome:index": "file(data/biome/index.json)",
+		"stonehearth:terrain_blocks": "file(data/terrain/terrain_blocks.json)",
+		"stonehearth/data/gm/campaigns/goblin_war/arcs/trigger/raidcamp/encounters/shakedown.json":"file(data/gm/campaigns/shakedown.json)",
+		"stonehearth/data/gm/campaigns/orc_war/arcs/trigger/old_khan/encounters/blue_tier_shakedown.json":"file(data/gm/campaigns/shakedown.json)",
+
+		"stonehearth:scenarios:scenario_index": "file(scenarios/scenario_index.json)",
+
+		"stonehearth/scenarios/static/beetle_nest/beetle_nest.json":		"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth/scenarios/static/bitsy_ant_nest/bitsy_ant_nest.json":	"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth/scenarios/static/ostrich_nest/ostrich_nest.json":		"file(scenarios/static/add_to_canyon_too.json)",
+
+		"stonehearth/scenarios/static/landmarks/64x_cave_lake.json":						"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth/scenarios/static/landmarks/64x_cave_ore_bad_omen.json":				"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth/scenarios/static/landmarks/64x_cave_ore_lucky_strike.json":			"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth/scenarios/static/landmarks/64x_cave_ore_small_strike.json":			"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth/scenarios/static/landmarks/64x_cave_pattern_lucky_snake.json":			"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth/scenarios/static/landmarks/64x_cave_pattern_ugly_duckling.json":		"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth/scenarios/static/landmarks/64x_cave_sanctuary.json":					"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth/scenarios/static/landmarks/64x_geyser_temperate.json":					"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth/scenarios/static/landmarks/64x_ruin_building.json":					"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth/scenarios/static/landmarks/64x_ruin_building_cellar.json":				"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth/scenarios/static/landmarks/64x_ruin_building_farm.json":				"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth/scenarios/static/landmarks/128x_giant_sleeping.json":					"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth/scenarios/static/landmarks/128x_gully.json":							"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth/scenarios/static/landmarks/128x_river_desert.json":					"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth/scenarios/static/landmarks/128x_ruin_town_farming.json":				"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth/scenarios/static/landmarks/128x_ruin_town_undead.json":				"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth/scenarios/static/landmarks/128x_skeleton_whale_desert.json":			"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth/scenarios/static/landmarks/128x_skeleton_whale_flipped_desert.json":	"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth/scenarios/static/landmarks/128x_stone_collection_1.json":				"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth/scenarios/static/landmarks/128x_stone_collection_2.json":				"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth/scenarios/static/landmarks/128x_stone_collection_3.json":				"file(scenarios/static/add_to_canyon_too.json)",
+
+		"stonehearth_ace/scenarios/static/poyo_nest/poyo_nest.json":					"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth_ace/scenarios/static/scarab_beetle_nest/scarab_beetle_nest.json":	"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth_ace/scenarios/static/scorpion_nest/scorpion_nest.json":			"file(scenarios/static/add_to_canyon_too.json)",
+
+		"stonehearth_ace/scenarios/static/landmarks/32x_cougar_den.json":	"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth_ace/scenarios/static/landmarks/32x_poyo_land.json":	"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth_ace/scenarios/static/landmarks/32x_sheep_herd.json":	"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth_ace/scenarios/static/landmarks/32x_wolf_den.json":		"file(scenarios/static/add_to_canyon_too.json)"
+	},
+	"components": {
+		"river":"file(components/river/river_component.lua)",
+		"waterfall":"file(components/waterfall/waterfall_component.lua)",
+		"add_as_terrain":"file(components/add_as_terrain/add_as_terrain_component.lua)"
+	},
+	"overrides": {
+		"brewerymod/mixins/generation_data.json":"file(modding_mods/brewerymod/generation.json)"
+	}
+}

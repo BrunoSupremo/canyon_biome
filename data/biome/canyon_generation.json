@@ -1,0 +1,557 @@
+{
+	"mixins" : "/stonehearth/data/biome/desert_generation_data.json",
+	"palettes": {
+		"minimap":{
+			"water":"#3386a7",
+			"mountains_16":"#A4834D"
+		},
+		"spring": {
+			"rock_layer_1": "#BF713E",
+			"rock_layer_2": "#BE683E",
+			"rock_layer_3": "#C3783F",
+			"rock_layer_4": "#CD8546",
+			"rock_layer_5": "#BC6F3C",
+			"rock_layer_6": "#BE603D",
+			"rock_layer_7": "#C77E41",
+			"rock_layer_8": "#C67642",
+			"rock_layer_9": "#CE8C45",
+			"rock_layer_10": "#C67942",
+			"rock_layer_11": "#CA8343",
+			"rock_layer_12": "#C27040",
+			"rock_layer_13": "#C2753E",
+			"rock_layer_14": "#BA623C",
+			"rock_layer_15": "#C47646",
+			"rock_layer_16": "#BC6A3C",
+			"soil_light": "#918154",
+			"soil_dark": "#807147",
+			"dirt": "#B3A16E",
+			"dirt_edge_1": "#A29161",
+			"grass": "#91965B",
+			"grass_edge_1": "#A7A662",
+			"grass_edge_2": "#9C9E5F",
+			"grass_hills": "#9C8B53",
+			"grass_hills_edge_1": "#AC9759",
+			"grass_hills_edge_2": "#A49156",
+			"marble" : "#DEDEDE",
+			"clay" : "#492A16"
+		},
+		"summer": {
+			"rock_layer_1": "#BF713E",
+			"rock_layer_2": "#BE683E",
+			"rock_layer_3": "#C3783F",
+			"rock_layer_4": "#CD8546",
+			"rock_layer_5": "#BC6F3C",
+			"rock_layer_6": "#BE603D",
+			"rock_layer_7": "#C77E41",
+			"rock_layer_8": "#C67642",
+			"rock_layer_9": "#CE8C45",
+			"rock_layer_10": "#C67942",
+			"rock_layer_11": "#CA8343",
+			"rock_layer_12": "#C27040",
+			"rock_layer_13": "#C2753E",
+			"rock_layer_14": "#BA623C",
+			"rock_layer_15": "#C47646",
+			"rock_layer_16": "#BC6A3C",
+			"soil_light": "#918154",
+			"soil_dark": "#807147",
+			"dirt": "#B3A16E",
+			"dirt_edge_1": "#A29161",
+			"grass": "#91965B",
+			"grass_edge_1": "#A7A662",
+			"grass_edge_2": "#9C9E5F",
+			"grass_hills": "#9C8B53",
+			"grass_hills_edge_1": "#AC9759",
+			"grass_hills_edge_2": "#A49156",
+			"marble" : "#DEDEDE",
+			"clay" : "#492A16"
+		},
+		"autumn": {
+			"rock_layer_1": "#BF713E",
+			"rock_layer_2": "#BE683E",
+			"rock_layer_3": "#C3783F",
+			"rock_layer_4": "#CD8546",
+			"rock_layer_5": "#BC6F3C",
+			"rock_layer_6": "#BE603D",
+			"rock_layer_7": "#C77E41",
+			"rock_layer_8": "#C67642",
+			"rock_layer_9": "#CE8C45",
+			"rock_layer_10": "#C67942",
+			"rock_layer_11": "#CA8343",
+			"rock_layer_12": "#C27040",
+			"rock_layer_13": "#C2753E",
+			"rock_layer_14": "#BA623C",
+			"rock_layer_15": "#C47646",
+			"rock_layer_16": "#BC6A3C",
+			"soil_light": "#918154",
+			"soil_dark": "#807147",
+			"dirt": "#B3A16E",
+			"dirt_edge_1": "#A29161",
+			"grass": "#91965B",
+			"grass_edge_1": "#A7A662",
+			"grass_edge_2": "#9C9E5F",
+			"grass_hills": "#9C8B53",
+			"grass_hills_edge_1": "#AC9759",
+			"grass_hills_edge_2": "#A49156",
+			"marble" : "#DEDEDE",
+			"clay" : "#492A16"
+		},
+		"winter": {
+			"rock_layer_1": "#BF713E",
+			"rock_layer_2": "#BE683E",
+			"rock_layer_3": "#C3783F",
+			"rock_layer_4": "#CD8546",
+			"rock_layer_5": "#BC6F3C",
+			"rock_layer_6": "#BE603D",
+			"rock_layer_7": "#C77E41",
+			"rock_layer_8": "#C67642",
+			"rock_layer_9": "#CE8C45",
+			"rock_layer_10": "#C67942",
+			"rock_layer_11": "#CA8343",
+			"rock_layer_12": "#C27040",
+			"rock_layer_13": "#C2753E",
+			"rock_layer_14": "#BA623C",
+			"rock_layer_15": "#C47646",
+			"rock_layer_16": "#BC6A3C",
+			"soil_light": "#918154",
+			"soil_dark": "#807147",
+			"dirt": "#B3A16E",
+			"dirt_edge_1": "#A29161",
+			"grass": "#91965B",
+			"grass_edge_1": "#A7A662",
+			"grass_edge_2": "#9C9E5F",
+			"grass_hills": "#9C8B53",
+			"grass_hills_edge_1": "#AC9759",
+			"grass_hills_edge_2": "#A49156",
+			"marble" : "#DEDEDE",
+			"clay" : "#492A16"
+		}
+	},
+	"terrain": {
+		"minimap":{
+			"water":"i18n(canyon_biome:ui.shell.select_settlement.terrain_codes.water)",
+			"plains_2":"i18n(canyon_biome:ui.shell.select_settlement.terrain_codes.plains_2)",
+			"foothills_1" : "i18n(stonehearth:ui.shell.select_settlement.terrain_codes.foothills_1)",
+			"mountains_1":"i18n(canyon_biome:ui.shell.select_settlement.terrain_codes.mountains_wall)",
+			"mountains_2":"i18n(canyon_biome:ui.shell.select_settlement.terrain_codes.mountains_wall)",
+			"mountains_3":"i18n(canyon_biome:ui.shell.select_settlement.terrain_codes.mountains_wall)",
+			"mountains_4":"i18n(canyon_biome:ui.shell.select_settlement.terrain_codes.mountains_wall)",
+			"mountains_5":"i18n(canyon_biome:ui.shell.select_settlement.terrain_codes.mountains_wall)",
+			"mountains_6":"i18n(canyon_biome:ui.shell.select_settlement.terrain_codes.mountains_wall)",
+			"mountains_7":"i18n(canyon_biome:ui.shell.select_settlement.terrain_codes.mountains_wall)",
+			"mountains_8":"i18n(canyon_biome:ui.shell.select_settlement.terrain_codes.mountains_wall)",
+			"mountains_9":"i18n(canyon_biome:ui.shell.select_settlement.terrain_codes.mountains_wall)",
+			"mountains_10":"i18n(canyon_biome:ui.shell.select_settlement.terrain_codes.mountains_wall)",
+			"mountains_11":"i18n(canyon_biome:ui.shell.select_settlement.terrain_codes.mountains_wall)",
+			"mountains_12":"i18n(canyon_biome:ui.shell.select_settlement.terrain_codes.mountains_wall)",
+			"mountains_13":"i18n(canyon_biome:ui.shell.select_settlement.terrain_codes.mountains_wall)",
+			"mountains_14":"i18n(canyon_biome:ui.shell.select_settlement.terrain_codes.mountains_wall)",
+			"mountains_15":"i18n(canyon_biome:ui.shell.select_settlement.terrain_codes.mountains_top)",
+			"mountains_16":"i18n(canyon_biome:ui.shell.select_settlement.terrain_codes.mountains_top)",
+		},
+		"noise_map_settings": {
+			"octaves": 2,
+			"persistence_ratio": 0.1,
+			"bandlimit": 2.5,
+			"aspect_ratio": 1
+		},
+		"plains_percentage": 50,
+		"height_base": 8,
+		"plains": {
+			"step_size": 1,
+			"valley_count": 2,
+			"step_count": 2
+		},
+		"foothills": {
+			"step_size": 5,
+			"step_count": 1
+		},
+		"mountains": {
+			"step_size": 5,
+			"step_count": 16
+		}
+	},
+	"terrain_detailer": {
+		"mountains": {
+			"depth_function": {
+				"octaves": 2,
+				"persistence_ratio": 0.4,
+				"amplitude": 2.5,
+				"layer_thickness": 1,
+				"layer_count": 5,
+				"unit_length": 12
+			},
+			"height_function": {
+				"octaves": 3,
+				"persistence_ratio": 0.1,
+				"amplitude": 2.5,
+				"layer_thickness": 3,
+				"unit_length": 6
+			}
+		},
+		"foothills": {
+			"depth_function": {
+				"octaves": 4,
+				"persistence_ratio": 0.2,
+				"amplitude": 2.5,
+				"layer_thickness": 2,
+				"layer_count": 6,
+				"unit_length": 6
+			},
+			"height_function": {
+				"octaves": 4,
+				"persistence_ratio": 0.1,
+				"amplitude": 2.5,
+				"layer_thickness": 5,
+				"unit_length": 24
+			}
+		}
+	},
+	"landscape": {
+		"placement_table": {
+			"stonehearth:plants:pear_cactus": {
+				"parameters": {
+					"grid_multiple": 2
+				}
+			},
+			"stonehearth:plants:berry_bush": {
+				"placement_type": "dense",
+				"parameters": {
+					"grid_multiple": 3,
+					"item_density": 0.2,
+					"exclusion_radius": 1
+				}
+			},
+			"stonehearth:plants:cactus": {
+				"parameters": {
+					"grid_multiple": 3
+				}
+			},
+			"stonehearth:plants:brightbell": {
+				"placement_type": "dense",
+				"parameters": {
+					"grid_multiple": 3,
+					"item_density": 0.1,
+					"exclusion_radius": 1
+				},
+				"plains": {
+					"placement_type": "dense",
+					"parameters": {
+						"grid_multiple": 3,
+						"item_density": 0.2,
+						"exclusion_radius": 1
+					}
+				}
+			},
+			"stonehearth:plants:frostsnap": {
+				"placement_type": "dense",
+				"parameters": {
+					"grid_multiple": 3,
+					"item_density": 0.1,
+					"exclusion_radius": 1
+				},
+				"plains": {
+					"placement_type": "dense",
+					"parameters": {
+						"grid_multiple": 3,
+						"item_density": 0.2,
+						"exclusion_radius": 1
+					}
+				}
+			},
+			"stonehearth:plants:silkweed": {
+				"parameters": {
+					"item_density": 0.1
+				},
+				"plains": {
+					"placement_type": "dense",
+					"parameters": {
+						"grid_multiple": 3,
+						"item_density": 0.2,
+						"exclusion_radius": 1
+					}
+				}
+			},
+			"canyon_biome:decoration:bones": {
+				"placement_type": "single",
+				"parameters": {
+					"ground_radius": 1,
+					"exclusion_radius": 3
+				}
+			},
+			"canyon_biome:decoration:skull": {
+				"placement_type": "single",
+				"parameters": {
+					"ground_radius": 1,
+					"exclusion_radius": 3
+				}
+			},
+			"canyon_biome:decoration:rock_pillar": {
+				"placement_type": "single",
+				"parameters": {
+					"ground_radius": 1,
+					"exclusion_radius": 3
+				}
+			},
+			"canyon_biome:decoration:rock_pillar2": {
+				"placement_type": "single",
+				"parameters": {
+					"ground_radius": 1,
+					"exclusion_radius": 3
+				}
+			},
+			"canyon_biome:decoration:rock_pillar3": {
+				"placement_type": "single",
+				"parameters": {
+					"ground_radius": 1,
+					"exclusion_radius": 3
+				}
+			},
+			"canyon_biome:decoration:rock_pillar4": {
+				"placement_type": "single",
+				"parameters": {
+					"ground_radius": 1,
+					"exclusion_radius": 3
+				}
+			},
+			"canyon_biome:decoration:rock_arc": {
+				"placement_type": "single",
+				"parameters": {
+					"ground_radius": 3,
+					"exclusion_radius": 7
+				}
+			},
+			"canyon_biome:terrain:river": {
+				"placement_type": "single",
+				"parameters": {
+					"ground_radius": 0,
+					"exclusion_radius": 7.5
+				}
+			},
+			"canyon_biome:terrain:waterfall": {
+				"placement_type": "single",
+				"parameters": {
+					"ground_radius": 0,
+					"exclusion_radius": 7.5
+				}
+			}
+		},
+		"trees": {
+			"sizes": {
+				"stonehearth:trees:acacia": {
+					"large": 8
+				}
+			},
+			"noise_map_parameters": {
+				"mean_offset": {
+					"water": 70
+				},
+				"terrain_based": {
+					"plains": {
+						"2": {
+							"density": 0.16,
+							"mean": 8,
+							"std_dev": 40
+						}
+					},
+					"foothills": {
+						"1": {
+							"density": 0.5,
+							"mean": -5,
+							"std_dev": 50
+						}
+					},
+					"mountains": {
+						"1": {
+							"density": 0
+						}
+					}
+				}
+			}
+		},
+		"berries": {
+			"placement": {
+				"std_dev": 0,
+				"mean_offset": {
+					"tree": -50,
+					"water": -50,
+					"boundary": -50
+				},
+				"density": {
+					"plains": 0,
+					"foothills": 0,
+					"mountains": 0
+				}
+			}
+		},
+		"scattered": {
+			"plants": {
+				"weights": {
+					"plains": {
+						"1": {
+							"stonehearth:plants:cactus": 0,
+							"stonehearth:plants:tumbleweed": 0,
+							"stonehearth:trees:cactus:small": 0,
+							"stonehearth:trees:cactus:large": 0,
+							"stonehearth:trees:acacia:small": 0,
+							"stonehearth:trees:acacia:large": 0,
+
+							"stonehearth:plants:pear_cactus": 1,
+							"stonehearth:plants:brightbell": 3,
+							"stonehearth:plants:frostsnap": 2,
+							"stonehearth:plants:silkweed": 2,
+							"stonehearth:plants:berry_bush": 1,
+							"stonehearth:plants:sugarbell": 0.1,
+							"stonehearth:plants:cactus:tulip:blue": 0.1,
+							"stonehearth:plants:cactus:tulip:red": 0.1,
+							"stonehearth:plants:cactus:tulip:yellow": 0.1,
+							"stonehearth:plants:wax_plant:green": 0.2,
+							"stonehearth:plants:wax_plant:purple": 0.2
+						}
+					},
+					"foothills": {
+						"1": {
+							"canyon_biome:decoration:bones": 2,
+							"canyon_biome:decoration:skull": 1,
+							"stonehearth:trees:acacia:small": 1,
+							"stonehearth:trees:cactus:large": 1,
+							"stonehearth:plants:cactus": 6,
+							"stonehearth:plants:tumbleweed": 4,
+							"stonehearth:plants:frostsnap": 1,
+							"stonehearth:plants:brightbell": 2,
+							"stonehearth:plants:pear_cactus": 3,
+							"stonehearth:plants:silkweed": 5,
+							"stonehearth:plants:sugarbell": 0.1,
+							"stonehearth:plants:cactus:tulip:blue": 1,
+							"stonehearth:plants:cactus:tulip:red": 1,
+							"stonehearth:plants:cactus:tulip:yellow": 1,
+							"stonehearth:plants:wax_plant:green": 2,
+							"stonehearth:plants:wax_plant:purple": 2
+						}
+					},
+					"mountains": {
+						"1": {
+							"canyon_biome:decoration:bones": 2.5,
+							"canyon_biome:decoration:skull": 1.5,
+							"canyon_biome:decoration:rock_arc": 0.5,
+							"canyon_biome:decoration:rock_pillar": 1,
+							"canyon_biome:decoration:rock_pillar2": 1,
+							"canyon_biome:decoration:rock_pillar3": 1,
+							"canyon_biome:decoration:rock_pillar4": 1,
+							"stonehearth:trees:acacia:small": 5,
+							"stonehearth:trees:acacia:large": 5,
+							"stonehearth:trees:cactus:large": 4,
+							"stonehearth:plants:cactus": 11,
+							"stonehearth:plants:tumbleweed": 10,
+							"stonehearth:plants:frostsnap": 2,
+							"stonehearth:plants:brightbell": 3,
+							"stonehearth:plants:pear_cactus": 8,
+							"stonehearth:plants:silkweed": 12,
+							"stonehearth:plants:sugarbell": 0.2,
+							"stonehearth:plants:cactus:tulip:blue": 1,
+							"stonehearth:plants:cactus:tulip:red": 1,
+							"stonehearth:plants:cactus:tulip:yellow": 1,
+							"stonehearth:plants:wax_plant:green": 2,
+							"stonehearth:plants:wax_plant:purple": 2
+						},
+						"2": {
+							"canyon_biome:decoration:bones": 2.5,
+							"canyon_biome:decoration:skull": 1.5,
+							"canyon_biome:decoration:rock_arc": 0.5,
+							"canyon_biome:decoration:rock_pillar": 1,
+							"canyon_biome:decoration:rock_pillar2": 1,
+							"canyon_biome:decoration:rock_pillar3": 1,
+							"canyon_biome:decoration:rock_pillar4": 1,
+							"stonehearth:trees:acacia:small": 5,
+							"stonehearth:trees:acacia:large": 5,
+							"stonehearth:trees:cactus:large": 4,
+							"stonehearth:plants:cactus": 11,
+							"stonehearth:plants:tumbleweed": 10,
+							"stonehearth:plants:frostsnap": 2,
+							"stonehearth:plants:brightbell": 3,
+							"stonehearth:plants:pear_cactus": 8,
+							"stonehearth:plants:silkweed": 12,
+							"stonehearth:plants:sugarbell": 0.2,
+							"stonehearth:plants:cactus:tulip:blue": 1,
+							"stonehearth:plants:cactus:tulip:red": 1,
+							"stonehearth:plants:cactus:tulip:yellow": 1,
+							"stonehearth:plants:wax_plant:green": 2,
+							"stonehearth:plants:wax_plant:purple": 2
+						}
+					}
+				},
+				"noise_map_parameters": {
+					"mean_offset": {
+						"water": 10
+					},
+					"terrain_based": {
+						"plains": {
+							"1": {
+								"probability": 0.55,
+								"density": 0.5
+							}
+						},
+						"foothills": {
+							"1": {
+								"probability": 0.5,
+								"density": 0.5
+							}
+						},
+						"mountains": {
+							"1": {
+								"probability": 0.6,
+								"density": 0.4
+							},
+							"2": {
+								"probability": 0.65,
+								"density": 0.4
+							}
+						}
+					}
+				}
+			},
+			"boulders": {
+				"noise_map_parameters": {
+					"terrain_based": {
+						"foothills": {
+							"1": {
+								"probability": 0.3,
+								"density": 0.7
+							}
+						},
+						"mountains": {
+							"1": {
+								"probability": 0.3,
+								"density": 0.7
+							}
+						}
+					}
+				}
+			}
+		},
+		"water": {
+			"spawn_objects":{
+				"water_1":{
+					"none":2,
+					"canyon_biome:terrain:river":1,
+					"canyon_biome:terrain:waterfall":0
+				}
+			},
+			"depth": {
+				"shallow": 2,
+				"deep": 4
+			},
+			"noise_map_settings": {
+				"persistence_ratio": 0.01,
+				"bandlimit": 2,
+				"octaves": 5,
+				"range": 100,
+				"aspect_ratio": 1.2,
+				"mean": {
+					"plains": -20,
+					"foothills": -40,
+					"mountains": -15
+				}
+			}
+		}
+	}
+}

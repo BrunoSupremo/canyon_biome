@@ -18,5 +18,6 @@
 	"applied_manifests": {
 		"canyon": "canyon_biome/canyon_selected/manifest.json"
 	},
-	"generation_file": "file(canyon_generation.json)"
+	"generation_file": "file(canyon_generation.json)",
+	"tower_defense_generation_file": "file(tower_defense/canyon_generation_data.json)"
 }

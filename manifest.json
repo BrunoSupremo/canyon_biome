@@ -9,6 +9,7 @@
 	"server_init_script": "file(canyon_biome_server)",
 	"aliases": {
 		"biome:canyon": "file(data/biome/canyon.json)",
+
 		"decoration:bones": "file(entities/decoration/bones)",
 		"decoration:rock_arc": "file(entities/decoration/rock_arc)",
 		"decoration:rock_pillar": "file(entities/decoration/rock_pillar)",
@@ -16,8 +17,12 @@
 		"decoration:rock_pillar3": "file(entities/decoration/rock_pillar/rock_pillar3.json)",
 		"decoration:rock_pillar4": "file(entities/decoration/rock_pillar/rock_pillar4.json)",
 		"decoration:skull": "file(entities/decoration/skull)",
+
+		"landmark_blocks": "file(data/terrain/landmark_blocks.json)",
+
 		"mixins:foreign_tree":"file(mixins/foreign_tree)",
 		"mixins:pasture_grass":"file(mixins/foreign_tree/pasture_grass.json)",
+		
 		"terrain:river": "file(entities/terrain/river)",
 		"terrain:waterfall": "file(entities/terrain/waterfall)"
 	},
@@ -62,7 +67,10 @@
 		"stonehearth_ace/scenarios/static/landmarks/32x_cougar_den.json":	"file(scenarios/static/add_to_canyon_too.json)",
 		"stonehearth_ace/scenarios/static/landmarks/32x_poyo_land.json":	"file(scenarios/static/add_to_canyon_too.json)",
 		"stonehearth_ace/scenarios/static/landmarks/32x_sheep_herd.json":	"file(scenarios/static/add_to_canyon_too.json)",
-		"stonehearth_ace/scenarios/static/landmarks/32x_wolf_den.json":		"file(scenarios/static/add_to_canyon_too.json)"
+		"stonehearth_ace/scenarios/static/landmarks/32x_wolf_den.json":		"file(scenarios/static/add_to_canyon_too.json)",
+
+		"tower_defense/data/compatible_mods.json": "file(data/compatible_mods.json)",
+		"tower_defense/manifest.json":	"file(modding_mods/tower_defense/manifest.json)"
 	},
 	"components": {
 		"river":"file(components/river/river_component.lua)",

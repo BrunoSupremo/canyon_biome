@@ -1,0 +1,5 @@
+{
+	"overrides":{
+		"canyon_biome/data/biome/images/canyon_400x300.jpg":"canyon_biome/data/biome/images/tower_defense.png"
+	}
+}

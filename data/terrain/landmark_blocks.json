@@ -17,5 +17,8 @@
 		"facing": 0,
 		"force_iconic": false,
 		"placement_chance": 1
-	}
+	},
+	"#9C8B53": {
+		"terrain_tag": "grass_hills"
+	},
 }

@@ -1,5 +1,9 @@
 canyon_biome = {}
-print("Canyon Biome version 19.6.25")
+print("Canyon Biome version 20.2.25")
+
+--[[
+add landmarks to the geomancer
+]]
 
 function canyon_biome:_on_biome_set(e)
 	if e.biome_uri ~= "canyon_biome:biome:canyon" then

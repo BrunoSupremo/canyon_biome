@@ -4,6 +4,8 @@ local FilterFns = require 'stonehearth.services.server.world_generation.filter.f
 local CustomMicroMapGenerator = class()
 -- local log = radiant.log.create_logger('meu_log')
 
+local extra_map_options = stonehearth.game_creation.get_extra_map_options
+
 function CustomMicroMapGenerator:generate_noise_map(size_x, size_y)
 	local mountains_info = self._terrain_info.mountains
 	local macro_blocks_per_tile = self._macro_blocks_per_tile
@@ -12,13 +14,20 @@ function CustomMicroMapGenerator:generate_noise_map(size_x, size_y)
 	local height = size_y * macro_blocks_per_tile + 1
 	local noise_map = Array2D(width, height)
 
+	local height_multipler = 10
+	local noise_config = self._terrain_info.noise_map_settings
+	if extra_map_options then
+		local extras = stonehearth.game_creation:get_extra_map_options()
+		if not extras.modes.canyons then
+			height_multipler = 1
+		end
+	end
 	local fn = function (x,y)
-		local noise_config = self._terrain_info.noise_map_settings
 		local mean = mountains_info.height_base
 		local range = (mountains_info.height_max - mean)*2
 		local height = SimplexNoise.proportional_simplex_noise(noise_config.octaves,noise_config.persistence_ratio,noise_config.bandlimit, mean,range, noise_config.aspect_ratio, self._seed,x,y)
 		-- log:error("x: %d - y: %d - height: %d", x, y, height)
-		return height*10
+		return height * height_multipler
 	end
 	noise_map:fill(fn)
 	return noise_map
@@ -34,6 +43,14 @@ function CustomMicroMapGenerator:generate_underground_micro_map(surface_micro_ma
 	local unfiltered_map = Array2D(width, height)
 	local underground_micro_map = Array2D(width, height)
 
+	local blocks_to_sink = 30
+	if extra_map_options then
+		local extras = stonehearth.game_creation:get_extra_map_options()
+		if not extras.modes.canyons then
+			blocks_to_sink = 0
+		end
+	end
+
 	-- seed the map using the above ground mountains
 	for i=1, size do
 		local surface_elevation = surface_micro_map[i]
@@ -45,7 +62,7 @@ function CustomMicroMapGenerator:generate_underground_micro_map(surface_micro_ma
 			value = math.max(surface_elevation - mountains_step_size*2, rock_line)
 		end
 
-		unfiltered_map[i] = value-30
+		unfiltered_map[i] = value - blocks_to_sink
 	end
 
 	-- filter the map to generate the underground height map
@@ -77,7 +94,7 @@ function CustomMicroMapGenerator:generate_underground_micro_map(surface_micro_ma
 			end
 		end
 
-		underground_micro_map[i] = rock_elevation-30
+		underground_micro_map[i] = rock_elevation - blocks_to_sink
 	end
 
 	local underground_elevation_map = self:_convert_to_elevation_map(underground_micro_map)

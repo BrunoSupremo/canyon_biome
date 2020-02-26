@@ -1,0 +1,15 @@
+{
+	"biome_options": {
+		"canyon_biome:biome:canyon": {
+			"rivers":{
+				"quantity":8,
+				"foothills":false,
+				"mountains":false
+			},
+			"dirt_holes":false,
+			"modes":{
+				"canyons":true
+			}
+		}
+	}
+}

@@ -32,6 +32,8 @@
 		"stonehearth/data/gm/campaigns/goblin_war/arcs/trigger/raidcamp/encounters/shakedown.json":"file(data/gm/campaigns/shakedown.json)",
 		"stonehearth/data/gm/campaigns/orc_war/arcs/trigger/old_khan/encounters/blue_tier_shakedown.json":"file(data/gm/campaigns/shakedown.json)",
 
+		"extra_map_options:data:extra_map_options":"file(data/extra_map_options.json)",
+
 		"stonehearth:scenarios:scenario_index": "file(scenarios/scenario_index.json)",
 
 		"stonehearth/scenarios/static/beetle_nest/beetle_nest.json":		"file(scenarios/static/add_to_canyon_too.json)",
@@ -49,6 +51,7 @@
 		"stonehearth/scenarios/static/landmarks/64x_ruin_building.json":					"file(scenarios/static/add_to_canyon_too.json)",
 		"stonehearth/scenarios/static/landmarks/64x_ruin_building_cellar.json":				"file(scenarios/static/add_to_canyon_too.json)",
 		"stonehearth/scenarios/static/landmarks/64x_ruin_building_farm.json":				"file(scenarios/static/add_to_canyon_too.json)",
+		"stonehearth/scenarios/static/landmarks/128x_constellation_wolf_arctic.json":		"file(scenarios/static/add_to_canyon_too.json)",
 		"stonehearth/scenarios/static/landmarks/128x_giant_sleeping.json":					"file(scenarios/static/add_to_canyon_too.json)",
 		"stonehearth/scenarios/static/landmarks/128x_gully.json":							"file(scenarios/static/add_to_canyon_too.json)",
 		"stonehearth/scenarios/static/landmarks/128x_river_desert.json":					"file(scenarios/static/add_to_canyon_too.json)",

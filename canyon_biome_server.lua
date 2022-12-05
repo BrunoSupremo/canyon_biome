@@ -1,5 +1,5 @@
 canyon_biome = {}
-print("Canyon Biome version 20.2.25")
+print("Canyon Biome version 22.12.5")
 
 --[[
 add landmarks to the geomancer

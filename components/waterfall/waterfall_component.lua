@@ -1,4 +1,3 @@
-local log = radiant.log.create_logger('CanyonWaterfall')
 local CanyonWaterfall = class()
 local Point3 = _radiant.csg.Point3
 local Cube3 = _radiant.csg.Cube3
@@ -6,150 +5,117 @@ local Region3 = _radiant.csg.Region3
 local rng = _radiant.math.get_default_rng()
 
 function CanyonWaterfall:post_activate()
-	log:error("post_activate")
 	self._world_generated_listener = radiant.events.listen_once(stonehearth.game_creation, 'stonehearth:world_generation_complete', self, self._on_world_generation_complete)
 end
 
 function CanyonWaterfall:_on_world_generation_complete()
-	log:error("_on_world_generation_complete")
 	local location = radiant.entities.get_world_grid_location(self._entity)
 	if location then
-		location = location+Point3(1,0,1)
-		self:carve_river(location)
+		local direction, ending_location = self:find_closest_highground_direction(location)
+		if direction then
+			self:create_canals(location, ending_location)
+			local delayed_function = function ()
+				self:dig_drystone_area(location)
+				self.stupid_delay:destroy()
+				self.stupid_delay = nil
+			end
+			self.stupid_delay = stonehearth.calendar:set_persistent_timer("teste delay", "30m+10m", delayed_function)
+		end
 	end
 	radiant.entities.destroy_entity(self._entity)
 end
 
-function CanyonWaterfall:carve_river(location)
-	-- log:error("carve_river")
-	local step = 0
-	local final_location, direction, dry_stone_offset
-	repeat
-		step = step +1
-		final_location, direction, dry_stone_offset = self:is_terrain(location, step)
-	--indent
-	until final_location or step>10
-	--indent
-
-	if not final_location then
-		return nil,nil
+function CanyonWaterfall:find_closest_highground_direction(location)
+	for i=1,5 do
+		if radiant.terrain.get_point_on_terrain(location+Point3(0,0,i*16)).y > 85 then
+			local ending_location = radiant.terrain.get_point_on_terrain(location+Point3(0,0,i*16))
+			ending_location.y = ending_location.y - 3
+			return "north", ending_location
+		end
+		if radiant.terrain.get_point_on_terrain(location+Point3(i*16,0,0)).y > 85 then
+			local ending_location = radiant.terrain.get_point_on_terrain(location+Point3(i*16,0,0))
+			ending_location.y = ending_location.y - 3
+			return "east", ending_location
+		end
+		if radiant.terrain.get_point_on_terrain(location+Point3(0,0,-i*16)).y > 85 then
+			local ending_location = radiant.terrain.get_point_on_terrain(location+Point3(0,0,-i*16))
+			ending_location.y = ending_location.y - 3
+			return "south", ending_location
+		end
+		if radiant.terrain.get_point_on_terrain(location+Point3(-i*16,0,0)).y > 85 then
+			local ending_location = radiant.terrain.get_point_on_terrain(location+Point3(-i*16,0,0))
+			ending_location.y = ending_location.y - 3
+			return "west", ending_location
+		end
 	end
+	return nil
+end
 
-	local tunel_cube = Cube3(
-		location,
-		final_location + Point3(0,2,0)
+function CanyonWaterfall:dig_drystone_area(location)
+	location = radiant.terrain.get_point_on_terrain(location)
+	local drill_region = Region3(
+		Cube3(
+			location + Point3(0,-5,0),
+			location + Point3(1,0,1)
+			)
 		)
-	if direction == "north" then
-		tunel_cube = Cube3(
-			final_location,
-			location + Point3(0,2,0)
-			)
-	end
-	if direction == "west" then
-		tunel_cube = Cube3(
-			final_location,
-			location + Point3(0,2,0)
-			)
-	end
-	tunel_cube = tunel_cube:inflated(Point3(2, 0, 2))
-	self:remove_cube(tunel_cube)
 
-	self:remove_entities_in_the_way(tunel_cube)
+	local dig_region = radiant.terrain.intersect_region(drill_region)
+	radiant.terrain.subtract_region(dig_region)
+	-- stonehearth.hydrology:create_water_body_with_region(dig_region, 5)
 
-	for i=5, 200 do
-		if not radiant.terrain.is_terrain(final_location+Point3(0,i,0)) then
-			self:add_dry_stone(dry_stone_offset)
-			self:add_wet_stone(final_location+Point3(0,i,0),direction)
-			return
-		end 
-	end
+	radiant.terrain.place_entity_at_exact_location(
+		radiant.entities.create_entity("stonehearth:manipulation:dry_stone"),
+		location + Point3(0,-5,0), {force_iconic = false} )
+	radiant.terrain.place_entity_at_exact_location(
+		radiant.entities.create_entity("stonehearth:manipulation:dry_stone"),
+		location + Point3(0,-5,0), {force_iconic = false} )
 end
 
-function CanyonWaterfall:is_terrain(location, step)
-	local center_offset = 6
-	if radiant.terrain.is_terrain(location + Point3(0, 2, -16*step)) then
-		return location+Point3(0, 0, -16*step +center_offset), "north", location+Point3(0, 0, -16)
+function CanyonWaterfall:create_canals(location,ending_location)
+	local entities = radiant.terrain.get_entities_at_point(location)
+	local water_height = 0
+	for _, entity in pairs(entities) do
+		local water_component = entity:get_component('stonehearth:water')
+		if water_component then
+			water_height = math.ceil(water_component:get_height())
+			break
+		end
 	end
-	if radiant.terrain.is_terrain(location + Point3(16*step, 2, 0)) then
-		return location+Point3(16*step -center_offset, 0, 0), "east", location+Point3(16, 0, 0)
+	-- min and max locations to sort out the coords, smaller first
+	local min_location = Point3(math.min(location.x,ending_location.x), location.y +water_height, math.min(location.z,ending_location.z))
+	local max_location = Point3(math.max(location.x,ending_location.x), ending_location.y, math.max(location.z,ending_location.z))
+
+	local region = Region3(Cube3(min_location, max_location):inflated(Point3(1,0,1)))
+	local terrain_region = radiant.terrain.intersect_region(region)
+	region:subtract_region(terrain_region)
+	local surface_region = radiant.terrain.intersect_region(region:translated(Point3(0,-1,0)))
+	radiant.terrain.subtract_region( surface_region )
+
+	self:remove_entities_in_the_way(surface_region:inflated(Point3(2,2,2)))
+
+	for cube in surface_region:each_cube() do
+		local water_region = Region3(cube)
+		stonehearth.hydrology:create_water_body_with_region(water_region, 0.5)
 	end
-	if radiant.terrain.is_terrain(location + Point3(0, 2, 16*step)) then
-		return location+Point3(0, 0, 16*step -center_offset), "south", location+Point3(0, 0, 16)
-	end
-	if radiant.terrain.is_terrain(location + Point3(-16*step, 2, 0)) then
-		return location+Point3(-16*step +center_offset, 0, 0), "west", location+Point3(-16, 0, 0)
-	end
-	return nil,nil,nil
+
+	min_location.y = max_location.y-1
+	radiant.terrain.subtract_region( Region3(Cube3(min_location, max_location):inflated(Point3(1,0,1))) )
+	radiant.terrain.place_entity_at_exact_location(
+		radiant.entities.create_entity("stonehearth:manipulation:wet_stone"),
+		ending_location - Point3.unit_y, {force_iconic = false} )
+	radiant.terrain.place_entity_at_exact_location(
+		radiant.entities.create_entity("stonehearth:manipulation:wet_stone"),
+		ending_location - Point3.unit_y, {force_iconic = false} )
 end
 
-function CanyonWaterfall:remove_cube(tunel_cube)
-	local cave_region = radiant.terrain.intersect_cube(tunel_cube)
-	for cube in cave_region:each_cube() do
-		radiant.terrain.subtract_cube(cube)
-	end
-end
-
-function CanyonWaterfall:remove_entities_in_the_way(cube)
-	cube = cube:inflated(Point3(3,3,3))
-	local intersected_entities = radiant.terrain.get_entities_in_cube(cube)
+function CanyonWaterfall:remove_entities_in_the_way(region)
+	local intersected_entities = radiant.terrain.get_entities_in_region(region)
 	for id, entity in pairs(intersected_entities) do
-		if not entity:get_uri()=="canyon_biome:terrain:waterfall" and not entity:get_component('stonehearth:water')  then
+		if not (entity:get_component('stonehearth:water') or entity == radiant._root_entity) then
 			radiant.entities.destroy_entity(entity)
 		end
 	end
-end
-
-function CanyonWaterfall:add_wet_stone(location,direction)
-	-- log:error("add_wet_stone")
-	local tunel_cube = Cube3(
-		location + Point3(0,-7,0),
-		location + Point3(1,-4,1)
-		)
-	self:remove_cube(tunel_cube)
-	if direction == "north" then
-		tunel_cube = Cube3(
-			location + Point3(0,-5,0),
-			location + Point3(0,-4,6)
-			)
-	end
-	if direction == "south" then
-		tunel_cube = Cube3(
-			location + Point3(0,-5,-6),
-			location + Point3(0,-4, 0)
-			)
-	end
-	if direction == "west" then
-		tunel_cube = Cube3(
-			location + Point3(0,-5,0),
-			location + Point3(6,-4,0)
-			)
-	end
-	if direction == "east" then
-		tunel_cube = Cube3(
-			location + Point3(-6,-5,0),
-			location + Point3( 0,-4,0)
-			)
-	end
-	tunel_cube = tunel_cube:inflated(Point3(1,0,1))
-	self:remove_cube(tunel_cube)
-	radiant.terrain.place_entity_at_exact_location(radiant.entities.create_entity("stonehearth:manipulation:wet_stone"), location+Point3(0,-7,0), {force_iconic = false})
-	radiant.terrain.place_entity_at_exact_location(radiant.entities.create_entity("stonehearth:manipulation:wet_stone"), location+Point3(0,-7,0), {force_iconic = false})
-end
-
-function CanyonWaterfall:add_dry_stone(location)
-	-- log:error("add_dry_stone")
-	local tunel_cube = Cube3(
-		location + Point3(0,-3,0),
-		location + Point3(1, 0,1)
-		)
-	self:remove_cube(tunel_cube)
-	tunel_cube = Cube3(
-		location + Point3(0,-3,0),
-		location + Point3(4,-2,1)
-		)
-	self:remove_cube(tunel_cube)
-	radiant.terrain.place_entity_at_exact_location(radiant.entities.create_entity("stonehearth:manipulation:dry_stone"), location+Point3(3,-3,0), {force_iconic = false})
-	radiant.terrain.place_entity_at_exact_location(radiant.entities.create_entity("stonehearth:manipulation:dry_stone"), location+Point3(3,-3,0), {force_iconic = false})
 end
 
 return CanyonWaterfall

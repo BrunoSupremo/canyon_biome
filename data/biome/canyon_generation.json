@@ -533,7 +533,7 @@
 				"water_1":{
 					"none":2,
 					"canyon_biome:terrain:river":1,
-					"canyon_biome:terrain:waterfall":0
+					"canyon_biome:terrain:waterfall":0.2
 				}
 			},
 			"depth": {

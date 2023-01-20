@@ -1,0 +1,34 @@
+{
+	"type": "recipe",
+	"effort": 60,
+	"work_units": 5,
+	"recipe_name": "i18n(canyon_biome:entities.landmark.summon_pillar.display_name)",
+	"description": "i18n(canyon_biome:entities.landmark.summon_pillar.description)",
+	"flavor": "",
+	"portrait": "/canyon_biome/entities/landmark/summon_pillar/summon_pillar.png",
+	"level_requirement": 4,
+	"workshop": "stonehearth:geomancer:workbench",
+	"ingredients": [
+		{
+			"uri": "stonehearth:landmark:summon_stone:block:rock",
+			"count": 3
+		},
+		{
+			"uri": "stonehearth:manipulation:wet_stone",
+			"count": 1
+		},
+		{
+			"uri": "stonehearth:manipulation:dry_stone",
+			"count": 1
+		},
+		{
+			"material": "earth_essence resource",
+			"count": 1
+		}
+	],
+	"produces": [
+		{
+			"item": "canyon_biome:landmark:pillar"
+		}
+	]
+}

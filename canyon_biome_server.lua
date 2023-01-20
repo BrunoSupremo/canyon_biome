@@ -1,8 +1,9 @@
 canyon_biome = {}
-print("Canyon Biome version 22.12.5")
+print("Canyon Biome version 23.1.19")
 
 --[[
-add landmarks to the geomancer
+todo:
+
 ]]
 
 function canyon_biome:_on_biome_set(e)

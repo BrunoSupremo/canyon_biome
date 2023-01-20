@@ -19,6 +19,7 @@
 		"decoration:skull": "file(entities/decoration/skull)",
 
 		"landmark_blocks": "file(data/terrain/landmark_blocks.json)",
+		"landmark:pillar": "file(entities/landmark/summon_pillar)",
 
 		"mixins:foreign_tree":"file(mixins/foreign_tree)",
 		"mixins:pasture_grass":"file(mixins/foreign_tree/pasture_grass.json)",
@@ -27,6 +28,7 @@
 		"terrain:waterfall": "file(entities/terrain/waterfall)"
 	},
 	"mixintos": {
+		"stonehearth:build:brushes": "file(data/build/building_brushes.json)",
 		"stonehearth:biome:index": "file(data/biome/index.json)",
 		"stonehearth:terrain_blocks": "file(data/terrain/terrain_blocks.json)",
 		"stonehearth/data/gm/campaigns/goblin_war/arcs/trigger/raidcamp/encounters/shakedown.json":"file(data/gm/campaigns/shakedown.json)",
@@ -34,6 +36,8 @@
 
 		"extra_map_options:data:extra_map_options":"file(data/extra_map_options.json)",
 
+		"stonehearth/jobs/geomancer/recipes/geomancer_recipes.json":"file(jobs/geomancer/recipes)",
+		
 		"stonehearth:scenarios:scenario_index": "file(scenarios/scenario_index.json)",
 
 		"stonehearth/scenarios/static/beetle_nest/beetle_nest.json":		"file(scenarios/static/add_to_canyon_too.json)",

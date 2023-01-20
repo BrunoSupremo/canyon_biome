@@ -1,5 +1,27 @@
 {
 	"data": {
+		"build": {
+			"building_brushes": {
+				"colors": {
+					"#BF713E": "Cânion Nível 1",
+					"#BE683E": "Cânion Nível 2",
+					"#C3783F": "Cânion Nível 3",
+					"#CD8546": "Cânion Nível 4",
+					"#BC6F3C": "Cânion Nível 5",
+					"#BE603D": "Cânion Nível 6",
+					"#C77E41": "Cânion Nível 7",
+					"#C67642": "Cânion Nível 8",
+					"#CE8C45": "Cânion Nível 9",
+					"#C67942": "Cânion Nível 10",
+					"#CA8343": "Cânion Nível 11",
+					"#C27040": "Cânion Nível 12",
+					"#C2753E": "Cânion Nível 13",
+					"#BA623C": "Cânion Nível 14",
+					"#C47646": "Cânion Nível 15",
+					"#BC6A3C": "Cânion Nível 16"
+				}
+			}
+		},
 		"biome": {
 			"canyon": {
 				"display_name": "Cânion",
@@ -22,6 +44,12 @@
 			"skull":{
 				"display_name":"Crânio",
 				"description":"Uma vez animal, agora parte da terra"
+			}
+		},
+		"landmark":{
+			"summon_pillar":{
+				"display_name": "Pilar do Cânion",
+				"description": "Invoca um pilar gigante com cachoeira."
 			}
 		}
 	},

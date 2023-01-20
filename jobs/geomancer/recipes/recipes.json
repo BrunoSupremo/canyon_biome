@@ -1,0 +1,11 @@
+{
+	"craftable_recipes" : {
+		"landmark": {
+			"recipes": {
+				"pillar": {
+					"recipe": "file(pillar_recipe.json)"
+				}
+			}
+		}
+	}
+}
